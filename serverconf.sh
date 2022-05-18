@@ -10,10 +10,8 @@ JVM_ARGS="-Xms4096M -Xmx6144M"
 JAR="fabric-server-launch.jar"
 JAR_ARGS="-nogui"
 
-# TMUX_WINDOW="minecraft"
-# TMUX_SOCKET="mc_tmux_socket"
-
-SCREEN_WINDOW="minecraft"
+TMUX_WINDOW="minecraft"
+TMUX_SOCKET="mc_tmux_socket"
 
 WORLD_NAME="world"
 if [ -f "server.properties" ]; then
