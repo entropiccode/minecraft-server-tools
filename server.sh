@@ -25,7 +25,8 @@ function backup_hook_example {
 }
 
 function send_cmd () {
-	tmux -S $TMUX_SOCKET send -t $TMUX_WINDOW "$1" enter
+# 	tmux -S $TMUX_SOCKET send -t $TMUX_WINDOW "$1" enter
+	screen -p 0 -S $SCREEN_WINDOW -X eval "stuff \"$1\"\015"
 }
 
 function assert_not_running() {

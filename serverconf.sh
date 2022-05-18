@@ -10,10 +10,12 @@ JVM_ARGS="-Xms4096M -Xmx6144M"
 JAR="fabric-server-launch.jar"
 JAR_ARGS="-nogui"
 
-TMUX_WINDOW="minecraft"
-TMUX_SOCKET="mc_tmux_socket"
+# TMUX_WINDOW="minecraft"
+# TMUX_SOCKET="mc_tmux_socket"
 
-WORLD_NAME="lfja"
+SCREEN_WINDOW="minecraft"
+
+WORLD_NAME="world"
 if [ -f "server.properties" ]; then
     WORLD_NAME=$(grep level-name server.properties | cut -d= -f2)
     echo "Getting world name from server.properties: $WORLD_NAME"
@@ -31,7 +33,7 @@ BACKUP_BACKEND="tar"
 CUR_YEAR=`date +"%Y"`
 
 # IMPORTANT: local paths must be absolute!
-BACKUP_DIRS=( "$PWD/.bak/$CUR_YEAR" "user@backupserver:/path/to/backup/$CUR_YEAR" )
+BACKUP_DIRS=( "$PWD/.bak/$CUR_YEAR" )
 
 # borg repository could be pasword-protected
 # to avoid having to manually type password, borg can run a command that should echo a password
