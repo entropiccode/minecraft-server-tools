@@ -10,6 +10,7 @@ JVM_ARGS="-Xms7G -Xmx7G -XX:+UseG1GC -XX:+ParallelRefProcEnabled -XX:MaxGCPauseM
 JAR="fabric-server-launch.jar"
 JAR_ARGS="nogui"
 
+NEW_FORGE=1.17
 TARGET_VER=1.18.2
 FORGE_VER="40.1.20"
 

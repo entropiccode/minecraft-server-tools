@@ -52,10 +52,10 @@ function server_start() {
 		echo "eula=true" > "eula.txt"
 	fi
 
-	if [ $TARGET_VER -lt 1.17 ]; then
+	if [ $TARGET_VER -lt $NEW_FORGE ]; then
 		tmux -S $TMUX_SOCKET new-session -s $TMUX_WINDOW -d \
 			$JRE_JAVA $JVM_ARGS -jar $JAR $JAR_ARGS
-	elif [ $TARGET_VER -ge 1.17 ]; then
+	elif [ $TARGET_VER -ge $NEW_FORGE ]; then
 		tmux -S $TMUX_SOCKET new-session -s $TMUX_WINDOW -d \
 			$JRE_JAVA $JVM_ARGS @libraries/net/minecraftforge/forge/${TARGET_VER}-${FORGE_VER}/unix_args.txt $JAR_ARGS "$@"
 	fi
