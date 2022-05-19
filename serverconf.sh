@@ -17,7 +17,7 @@ FORGE_VER="40.1.20"
 TMUX_WINDOW="minecraft"
 TMUX_SOCKET="mc_tmux_socket"
 
-WORLD_NAME="world"
+WORLD_NAME="asdf"
 if [ -f "server.properties" ]; then
     WORLD_NAME=$(grep level-name server.properties | cut -d= -f2)
     echo "Getting world name from server.properties: $WORLD_NAME"
