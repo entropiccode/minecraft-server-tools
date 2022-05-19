@@ -10,8 +10,22 @@ JVM_ARGS="-Xms7G -Xmx7G -XX:+UseG1GC -XX:+ParallelRefProcEnabled -XX:MaxGCPauseM
 JAR="fabric-server-launch.jar"
 JAR_ARGS="nogui"
 
-NEW_FORGE=1.17
-TARGET_VER=1.18.2
+# When setting the TARGET_VER, take your desired Minecraft version
+# Add zeroes such that there is a tens and ones digit in the second and third sections
+# 1.6.4 becomes 1.06.04
+# Remove the periods
+# 1.06.04 becomes 10604
+#
+# Common Versions:
+# 1.18.2    ->  11802
+# 1.16.5    ->  11605
+# 1.12.2    ->  11202
+# 1.7.10    ->  10710
+# 1.6.4     ->  10604
+# 1.4.7     ->  10407
+
+TARGET_VER=11802
+MC_VER="1.18.2"
 FORGE_VER="40.1.20"
 
 TMUX_WINDOW="minecraft"
@@ -33,6 +47,7 @@ BACKUP_BACKEND="tar"
 
 #Constants
 CUR_YEAR=`date +"%Y"`
+NEW_FORGE=11700     # Fixed at 11700 (1.17.0) as this is when Forge implemented their new run script
 
 # IMPORTANT: local paths must be absolute!
 BACKUP_DIRS=( "$PWD/.bak/$CUR_YEAR" )

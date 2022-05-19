@@ -57,7 +57,7 @@ function server_start() {
 			$JRE_JAVA $JVM_ARGS -jar $JAR $JAR_ARGS
 	elif [ $TARGET_VER -ge $NEW_FORGE ]; then
 		tmux -S $TMUX_SOCKET new-session -s $TMUX_WINDOW -d \
-			$JRE_JAVA $JVM_ARGS @libraries/net/minecraftforge/forge/${TARGET_VER}-${FORGE_VER}/unix_args.txt $JAR_ARGS "$@"
+			$JRE_JAVA $JVM_ARGS @libraries/net/minecraftforge/forge/${MC_VER}-${FORGE_VER}/unix_args.txt $JAR_ARGS "$@"
 	fi
 	pid=`tmux -S $TMUX_SOCKET list-panes -t $TMUX_WINDOW -F "#{pane_pid}"`
 	echo $pid > $PIDFILE
