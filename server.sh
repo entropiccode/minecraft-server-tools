@@ -52,8 +52,13 @@ function server_start() {
 		echo "eula=true" > "eula.txt"
 	fi
 
-	tmux -S $TMUX_SOCKET new-session -s $TMUX_WINDOW -d \
-		$JRE_JAVA $JVM_ARGS -jar $JAR $JAR_ARGS
+	if [[ $TARGET_VER -lt 1.17 ]]; then
+		tmux -S $TMUX_SOCKET new-session -s $TMUX_WINDOW -d \
+			$JRE_JAVA $JVM_ARGS -jar $JAR $JAR_ARGS
+	elif [[ $TARGET_VER -ge 1.17 ]]; then
+		tmux -S $TMUX_SOCKET new-session -s $TMUX_WINDOW -d \
+			$JRE_JAVA $JVM_ARGS @libraries/net/minecraftforge/forge/${TARGET_VER}-${FORGE_VER}/unix_args.txt $JAR_ARGS "$@"
+	fi
 	pid=`tmux -S $TMUX_SOCKET list-panes -t $TMUX_WINDOW -F "#{pane_pid}"`
 	echo $pid > $PIDFILE
 	log_info "Started with PID $pid"
