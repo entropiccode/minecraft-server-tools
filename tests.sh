@@ -113,8 +113,8 @@ function test_backend() {
 printf "\n\n\nTesting tar backend\n"
 test_backend "tar"
 
-printf "\n\n\nTesting bup backend\n"
-test_backend "bup"
+# printf "\n\n\nTesting bup backend\n"
+# test_backend "bup"
 
 printf "\n\n\nTesting borg backend\n"
 test_backend "borg"
