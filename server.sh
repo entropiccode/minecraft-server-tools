@@ -9,7 +9,7 @@ else
 fi
 
 source "backends/tar.sh"
-source "backends/bup.sh"
+# source "backends/bup.sh"
 source "backends/borg.sh"
 
 function log_debug() {
